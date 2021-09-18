@@ -61,4 +61,17 @@ function getMyToDoListIndex ( id ) {
     return -1
 }
 
+function createNewMyToDoList ( listData ) {
+    let list = {
+        id: currentId,
+        name: listData.name,
+    }
+    incrementCurrentIdByOne ()
+    myToDoListsDatabase.push ( list )
+}
+
+
+app.listen ( port, () => {
+    console.log ( `The server is running on port ${ port }` )
+} )
 
