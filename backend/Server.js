@@ -97,6 +97,21 @@ function updateMyToDoList ( listData ) {
     }
 }
 
+function deleteMyToDoList ( index ) {
+    myToDoListsDatabase.splice ( index, 1 )
+}
+
+function deleteMyToDoListById ( id ) {
+    let index = getMyToDoListIndex ( id )
+
+    if ( index === -1 ) {
+        return messageMyToDoListNotFound ()
+    } else {
+        deleteMyToDoList ( index )
+        return messageMyToDoListSuccess ( 'My-TODO-List deleted successfully!' )
+    }
+}
+
 app.listen ( port, () => {
     console.log ( `The server is running on port ${ port }` )
 } )
