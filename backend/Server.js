@@ -116,6 +116,31 @@ app.get ( '/', function ( req, res ) {
     res.send ( 'My API is Alive!' )
 } )
 
+app.post ( '/MyToDoLists', function ( req, res ) {
+    createNewMyToDoList ( req.body )
+    res.json ( 'Successfully created a new My-TODO-List!' )
+} )
+
+app.get ( '/MyToDoLists', function ( req, res ) {
+    res.json ( getAllMyToDoLists () )
+} )
+
+app.get ( '/MyToDoLists/:id', function ( req, res ) {
+    const id = Number ( req.params.id )
+    let response = getMyToDoListById ( id )
+    res.status ( response.status ).json ( response.text )
+} )
+
+app.put ( '/MyToDoLists', function ( req, res ) {
+    let response = updateMyToDoList ( req.body )
+    res.status ( response.status ).send ( response.text )
+} )
+
+app.delete ( '/MyToDoLists/:id', function ( req, res ) {
+    let response = deleteMyToDoListById ( Number ( req.params.id ) )
+    res.status ( response.status ).send ( response.text )
+} );
+
 app.listen ( port, () => {
     console.log ( `The server is running on port ${ port }` )
 } )
