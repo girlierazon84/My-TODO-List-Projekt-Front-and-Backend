@@ -74,6 +74,16 @@ function getAllMyToDoLists () {
     return myToDoListsDatabase
 }
 
+function getMyToDoListById ( id ) {
+    let index = getMyToDoListIndex ( id )
+
+    if ( index === -1 ) {
+        return messageMyToDoListNotFound ()
+    } else {
+        return messageMyToDoListSuccess ( myToDoListsDatabase[ index ] )
+    }
+}
+
 
 app.listen ( port, () => {
     console.log ( `The server is running on port ${ port }` )
