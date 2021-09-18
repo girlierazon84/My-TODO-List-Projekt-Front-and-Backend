@@ -38,3 +38,19 @@ let myToDoListsDatabase = [
     },
 ]
 
+function messageMyToDoListNotFound () {
+    return {
+        status: 404,
+        text: 'My-TODO-List not found!'
+    }
+}
+
+function messageMyToDoListSucess ( message ) {
+    return {
+        status: 200,
+        text: message
+    }
+}
+
+
+
