@@ -112,6 +112,10 @@ function deleteMyToDoListById ( id ) {
     }
 }
 
+app.get ( '/', function ( req, res ) {
+    res.send ( 'My API is Alive!' )
+} )
+
 app.listen ( port, () => {
     console.log ( `The server is running on port ${ port }` )
 } )
