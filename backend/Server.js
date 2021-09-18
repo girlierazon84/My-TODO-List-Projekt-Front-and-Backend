@@ -84,6 +84,18 @@ function getMyToDoListById ( id ) {
     }
 }
 
+function updateMyToDoList ( listData ) {
+    const index = getMyToDoListIndex(Number( listData.id ))
+
+    if ( index === -1 ) {
+        return messageMyToDoListNotFound ()
+    } else {
+        if ( myToDoListsDatabase[ index ].name !== listData.name ) {
+            myToDoListsDatabase[ index ].name = listData.name
+        }
+        return messageMyToDoListSuccess ( 'My-TODO-List updated!' )
+    }
+}
 
 app.listen ( port, () => {
     console.log ( `The server is running on port ${ port }` )
