@@ -45,12 +45,20 @@ function messageMyToDoListNotFound () {
     }
 }
 
-function messageMyToDoListSucess ( message ) {
+function messageMyToDoListSuccess ( message ) {
     return {
         status: 200,
         text: message
     }
 }
 
+function getMyToDoListIndex ( id ) {
+    for ( let i = 0; i < myToDoListsDatabase.length; i++ ) {
+        if ( myToDoListsDatabase[ i ].id === id ) {
+            return i
+        }
+    }
+    return -1
+}
 
 
