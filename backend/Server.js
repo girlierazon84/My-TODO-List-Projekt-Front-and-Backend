@@ -13,6 +13,28 @@ app.use ( cors ( {
 app.use ( express.urlencoded ( { extended: false } ) )
 app.use ( express.json () )
 
+let currentId = 5
 
+function incrementCurrentIdByOne () {
+    currentId += 1
+}
 
+let myToDoListsDatabase = [
+    {
+        id: 1,
+        name: 'Studying',
+    },
+    {
+        id: 2,
+        name: 'Cooking',
+    },
+    {
+        id: 3,
+        name: 'Cleaning',
+    },
+    {
+        id: 4,
+        name: 'Washing Clothes',
+    },
+]
 
