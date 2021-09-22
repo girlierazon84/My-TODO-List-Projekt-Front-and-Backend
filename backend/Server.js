@@ -22,19 +22,27 @@ function incrementCurrentIdByOne () {
 let myToDoListsDatabase = [
     {
         id: 1,
-        name: 'Studying',
+        todo: 'Cooking',
+        status: 'Completed',
+        assignedTo: 'Yalda',
     },
     {
         id: 2,
-        name: 'Cooking',
+        todo: 'Washing Dishes',
+        status: 'Not Complete',
+        assignedTo: 'Ayda',
     },
     {
         id: 3,
-        name: 'Cleaning',
+        todo: 'Washing Clothes',
+        status: 'Completed',
+        assignedTo: 'Girlie',
     },
     {
         id: 4,
-        name: 'Washing Clothes',
+        todo: 'Cleaning the whole house',
+        status: 'Not Complete',
+        assignedTo: 'Houshmand',
     },
 ]
 
@@ -64,7 +72,9 @@ function getMyToDoListIndex ( id ) {
 function createNewMyToDoList ( listData ) {
     let list = {
         id: currentId,
-        name: listData.name,
+        todo: listData.todo,
+        status: listData.status,
+        assignedTo: listData.assignedTo,
     }
     incrementCurrentIdByOne ()
     myToDoListsDatabase.push ( list )
@@ -90,8 +100,14 @@ function updateMyToDoList ( listData ) {
     if ( index === -1 ) {
         return messageMyToDoListNotFound ()
     } else {
-        if ( myToDoListsDatabase[ index ].name !== listData.name ) {
-            myToDoListsDatabase[ index ].name = listData.name
+        if ( myToDoListsDatabase[ index ].todo !== listData.todo ) {
+            myToDoListsDatabase[ index ].todo = listData.todo
+        }
+        if ( myToDoListsDatabase[ index ].status !== listData.status ) {
+            myToDoListsDatabase[ index ].status = listData.status
+        }
+        if ( myToDoListsDatabase[ index ].assignedTo !== listData.assignedTo ) {
+            myToDoListsDatabase[ index ].assignedTo = listData.assignedTo
         }
         return messageMyToDoListSuccess ( 'My-TODO-List updated!' )
     }
