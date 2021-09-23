@@ -81,6 +81,7 @@ export default function Input () {
             } )
     }
 
+    // Delete - DELETE - Function
     function deleteMyToDoListById ( listId ) {
         http.delete ( `/MyToDoLists/${ listId }` )
             .then ( function ( response ) {
@@ -91,6 +92,7 @@ export default function Input () {
             } )
     }
 
+    // Arrow function to clear all inputs
     const handleResetInput = ( event ) => {
         setToDo ();
         setStatus ();
@@ -113,7 +115,6 @@ export default function Input () {
     }
 
     return (
-        //Create - Post - Input and Button
         <>
             <div className="create__list__container ">
                 <input className="input__list"
@@ -143,7 +144,10 @@ export default function Input () {
                         } }><b>Create</b>
                 </button>
             </div>
+
             <br/>
+
+
             <div className="update__list__container ">
                 <input className="input__list"
                        id="update__id"
@@ -202,7 +206,6 @@ export default function Input () {
 
             <br/>
 
-            {/*Read - GET - Button*/ }
             <div className="get__container__list">
                 <button className="todo__lists__btn" onClick={ getAllMyToDoLists }>
                     <b>open todo lists</b>
