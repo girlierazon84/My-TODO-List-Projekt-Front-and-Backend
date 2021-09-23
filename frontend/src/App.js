@@ -8,26 +8,25 @@ import './utils/global/css/global.css';
 
 
 function App () {
+
     return (
-        <>
-            <div>
-                <Navbar/>
-                <Input/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <Footer/>
-            </div>
-        </>
+        <div>
+            <Navbar/>
+            <Input/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <Footer/>
+        </div>
     );
 }
 
