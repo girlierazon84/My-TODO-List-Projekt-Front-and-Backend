@@ -13,7 +13,7 @@ export default function Input () {
     const [ displayAllToDos, setDisplayAllToDos ] = useState ()
     const [ displayOneToDo, setDisplayOneToDo ] = useState ()
     const [ toDoId, setToDoId ] = useState ()
-    // Update - UPDATE
+    // Update - PUT
     const [ updateId, setUpdateId ] = useState ()
     const [ updateToDo, setUpdateToDo ] = useState ()
     const [ updateStatus, setUpdateStatus ] = useState ()
@@ -62,7 +62,7 @@ export default function Input () {
             } )
     }
 
-    // Update - UPDATE -Function
+    // Update - PUT -Function
     function updateMyToDoList ( listId, listTodo, listStatus, listAssignedTo ) {
         console.log ( listId, listTodo, listStatus, listAssignedTo )
         const payload = {
