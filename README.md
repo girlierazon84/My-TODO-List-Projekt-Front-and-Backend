@@ -3,8 +3,66 @@
 ##### Inlämningsuppgift Webbserverprogrammering 1
 ##### Inlämningsdatum: 2021-September-26
 
+## Lösningar:
 
-## GIT
+### Backend
+#### På det här projektet använder jag dessa följande:
+1. `Node.js`, som är en öppen källkod och plattformskörningstid som används vid körning av JavaScript-kod på serversidan.
+2. `Express`. Det är ett "Node.js" webbramverk för routing och mellanprogram som har minimal egen funktionalitet. Det låter man strukturera en webbapplikation för att hantera flera olika "http requests" på en specifik webbadress. Det låter man konfigurera och hantera en HTTP-server för att komma åt resurser från samma domän. Till exempel, i början har jag skapat dessa följande:
+   - `app.listen()` funktion, som jag har lagt till i sist i "Server.js" fil för att andra funktioner som t.ex. "app.post(), app.get(), app.put() och app.delete()" ska fungera. "App.listen()" funktionen används för att binda och lyssna på anslutningarna på den angivna värden och porten.
+        - t.ex. `app.listen ( port, () => {
+          console.log ( `The server is running on port ${ port }` )
+          } )`
+   - `app.get()` funktion för att kontrollera att mitt API lever.
+        - t.ex. `app.get ( '/', function ( req, res ) {
+          res.send ( 'My API is Alive!' )
+          } )`
+   ### Problem:
+        - "Request" om externt ursprung misslyckades.
+   ### Lösning: 
+        - Installera "cors" och konfigurera det med express
+4. `Cors`. Det menar "Cross-Origin Resource Sharing". Det låter man göra förfrågningar från en webbplats till en annan webbplats i webbläsaren, vilket normalt är förbjudet av en annan webbläsarpolicy som kallas "Same-Origin Policy (SOP)". Genom att implementera det i "Node.js" får man tillgång till många funktioner i webbläsaren.
+    - Jag har använt ett speciellt värde, stjärna `*` i `Access-Control-Allow-Origin`, vilket innebär att tillåta alla ursprung att få tillgång resursen.
+    - Sen har jag specificerat vilka metoder som jag ska använda. I detta fall har jag använt `GET, POST, PUT, DELETE`.
+        - t.ex. `app.use ( cors ( {
+          origin: '*',
+          methods: [ 'GET', 'POST', 'PUT', 'DELETE' ]
+          } ) )`
+5. `DotEnv`. Det är ett säkert sätt att hantera privata data eftersom det låter dig skilja hemligheter från din källkod. Detta är användbart i en samarbetsmiljö där du kanske inte vill dela dina inloggningsuppgifter för databasen med andra människor. Istället kan du dela källkoden samtidigt som andra människor kan skapa sin egen. Det skjuts inte till din repo, d.v.s. github eller bitbucket eller någonstans där du lagrar din kod. På så sätt avslöjas det inte.
+
+### Frontend 
+#### På det här projektet har jag använt dessa följande "dependencies":
+1. `React`. Det är ett JavaScript-bibliotek med öppen källkod som används för att bygga användargränssnitt specifikt för enkelsidiga applikationer. Det används för att hantera visningsskiktet för webb-och mobilappar. Det låter man också skapa återanvändbara UI - komponenter.
+2. `useState`. Det är en "Hook" som låter man lägga till "React state" variabler i funktionskomponenter.
+    - t.ex. `const [ toDo, setToDo ] = useState ()`
+3. `Axios`. Det är ett Javascript-bibliotek som används för att göra enkelt att skicka asynkrona "HTTP-förfrågningar" till "REST-slutpunkter" och utföra CRUD-operationer. Det serialiserar `put()` objekt till JSON med hjälp av `JSON.stringify()` - funktionen. 
+    - t.ex. `function updateMyToDoList ( listId, listTodo, listStatus, listAssignedTo ) {
+      console.log ( listId, listTodo, listStatus, listAssignedTo )
+      const payload = {
+      "id": listId,
+      "todo": listTodo,
+      "status": listStatus,
+      "assignedTo": listAssignedTo,
+      }
+      console.log ( payload )
+      http.put ( '/MyToDoLists', payload )
+      .then ( function ( response ) {
+      console.log ( response.data )
+      } )
+      .catch ( function ( error ) {
+      console.log ( error )
+      } )
+      }`
+4. `react-json-to-table`. Det är en "React-bibliotek" som används för att konvertera JSON till HTML table. Jag har använts den för att minska tiden på kodning tråkiga "`<tr>, <td>`".
+    - t.ex. `import { JsonToTable } from 'react-json-to-table';`
+    
+### Test API
+#### Jag har använt `Insomnia` som min "REST client" för att testa mitt `API` eftersom det har minimalistisk, söt och enkel användargränssnitt och den kan dra svarsdata för en begäran och mata in den i nästa förfrågan.
+
+
+## Steg:
+
+#### GIT
 
 1. Skapa ett nytt github repository med namn `My-TODO-List-Projekt-Front-and-Backend`
 2. Skapa en `README` och `gitignore` filer
@@ -12,7 +70,7 @@
 4. Klona `My-TODO-List-Projekt-Front-and-Backend` github repository på github desktop
 
 
-## BACKEND
+#### BACKEND
 
 1. Öppna `My-TODO-List-Projekt-Front-and-Backend` mappen på `Webstorm` och skapa en mapp med namn `backend`
 2. Ändra `local terminal` namn till `Backend`
@@ -65,7 +123,7 @@
 41. "Commit" och "Push" alla som har gjorts och ändrats på github
 
 
-## TEST API med INSOMNIA
+#### TEST API med INSOMNIA
 
 1. Skapa en ny `Design Document` och redigera titels namn till projekts namn men spara dokumentets "extension - .yaml" som t.ex. `My-TODO-List-Inlämning.yaml`
 2. Kontrollera servern om det lever genom att skapa en GET request i "DEBUG" med namn  "My API is Alive!" 
@@ -80,7 +138,7 @@
 11. Exportera Insomnia json data till projektsmappen
 
 
-## FRONTEND
+#### FRONTEND
 
 1. Skapa en "wireframe" and "prototype"
 2. Skapa egen "favicon" och lägg till i react och lägg till egen "favicon.ico" i "public" mappen
