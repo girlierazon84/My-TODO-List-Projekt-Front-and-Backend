@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Navbar from './components/Navbar';
-import Input from './components/Input';
-import Footer from './components/Footer';
+import Navbar from './components/Navbar.js';
+import Input from './components/Input.js';
+import Footer from './components/Footer.js';
 
 import './utils/global/css/global.css';
 

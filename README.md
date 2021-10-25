@@ -58,7 +58,7 @@
     
 ### Test API
 #### Jag har använt `Insomnia` som min "REST client" för att testa mitt `API` eftersom det har minimalistisk, söt och enkel användargränssnitt och den kan dra svarsdata för en begäran och mata in den i nästa förfrågan.
-
+1. 
 
 
 
@@ -161,8 +161,8 @@
 17. Skapa `css` mapp samt `fonts` inom "global" mapp
 18. Under "css" mapp, skapa `global.css`
 19. Under "fonts" mapp, klistra in de typsnitten som ska användas
-20. Under utils, skapa en `api` mapp och inom den skapa en javascript fil med namn `UsersApi`
-21. Importera `Axios` till "UsersApi.js" fil
+20. Under utils, skapa en `api` mapp och inom den skapa en javascript fil med namn `TODOsApi`
+21. Importera `Axios` till "TODOsApi.js" fil
 22. Installera "fontawesome icons"
 23. "Commit" och "Push" alla som har gjorts och ändrats
 24. Skapa en javascript fil som kallas `Navbar.js` under components
@@ -175,7 +175,7 @@
 31. Skapa `Footer.js` fil under components mapp och gör en funktion med samma namn som filen
 32. I `Footer.js` fil, importera `React`, `SocialMedias`, `copyright image` and `global css`
 33. Exportera Footer.js fil genom att skriva export default innan funktionen
-34. Skapa en `Input.js` fil under components och importera `React`, `JsonToTable`, `UsersApi` och `global css`
+34. Skapa en `Input.js` fil under components och importera `React`, `JsonToTable`, `TODOsApi` och `global css`
 35. Skapa en funktion med samma namn som filen och exportera det genom att lägga till export default innan funktionen
 36. Ordna "useState" variabler och "funktioner" utifrån `CRUD` operationer
 37. "Commit" och "Push" alla som har gjorts och ändrats till github

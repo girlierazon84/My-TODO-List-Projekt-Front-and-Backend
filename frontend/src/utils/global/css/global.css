@@ -39,6 +39,7 @@ body {
     justify-content: center;
 }
 
+.alive__text,
 .get__container__list {
     justify-content: center;
     text-align: center;
@@ -88,12 +89,13 @@ body {
     width: 18%;
 }
 
-.clear__btn,
-.get__btn,
-.delete__btn,
+.alive__btn,
 .add__btn,
 .todo__lists__btn,
-.update__btn {
+.get__btn,
+.update__btn,
+.delete__btn,
+.clear__btn {
     cursor: pointer;
     padding: 1%;
     border: 2px solid var(--secondary-color);
@@ -104,18 +106,20 @@ body {
     font-size: 100%;
 }
 
-.clear__btn:hover,
-.clear__btn:focus,
-.get__btn:hover,
-.get__btn:focus,
-.delete__btn:hover,
-.delete__btn:focus,
-.update__btn:hover,
-.update__btn:focus,
+.alive__btn:hover,
+.alive__btn:focus,
+.add__btn:hover,
+.add__btn:focus
 .todo__lists__btn:hover,
 .todo__lists__btn:focus,
-.add__btn:hover,
-.add__btn:focus {
+.get__btn:hover,
+.get__btn:focus,
+.update__btn:hover,
+.update__btn:focus,
+.delete__btn:hover,
+.delete__btn:focus,
+.clear__btn:hover,
+.clear__btn:focus {
     color: var(--primary-color);
     background: var(--secondary-color);
 }

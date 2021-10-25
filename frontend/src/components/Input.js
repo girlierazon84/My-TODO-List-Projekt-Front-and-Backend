@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { JsonToTable } from 'react-json-to-table';
 
-import http from '../utils/api/UsersApi'
+import http from '../utils/api/TODOsApi.js';
 import '../utils/global/css/global.css'
 
-export default function Input () {
+export default function Input () {// Kontrollera APIet om lever
+    const [ apiStart, setApiStart ] = useState ()
     // Create - POST
     const [ toDo, setToDo ] = useState ()
     const [ status, setStatus ] = useState ()
@@ -22,6 +23,23 @@ export default function Input () {
     const [ id, setId ] = useState ()
     //Reset
     const [ resetInput, setResetInput ] = useState ()
+
+    // Kontrollera APIet om lever - Function
+    function alive () {
+        http.get ( '/' )
+            .then ( function ( response ) {
+                console.log ( response.data )
+                setApiStart ( response.data )
+            } )
+            .catch ( function ( error ) {
+                // Handle error
+                console.log ( error )
+                return 'Error'
+            } )
+            .then ( function () {
+                // Always executed
+            } )
+    }
 
     // Create - POST - Function
     function createMyToDoList ( listTodo, listStatus, listAssignedTo ) {
@@ -94,6 +112,7 @@ export default function Input () {
 
     // Arrow function to clear all inputs
     const handleResetInput = ( event ) => {
+        setApiStart ();
         setToDo ();
         setStatus ();
         setAssignedTo ();
@@ -109,7 +128,7 @@ export default function Input () {
         Array.from ( document.querySelectorAll ( 'input' ) ).forEach ( input => ( input.value = '' )
         );
         setResetInput ( {
-            itemvalues: [ {} ]
+            itemValues: [ {} ]
         } );
         console.log ( event )
     }
@@ -207,6 +226,10 @@ export default function Input () {
             <br/>
 
             <div className="get__container__list">
+                <button className="alive__btn"
+                        onClick={ alive }><b>Alive!</b>
+                </button>
+
                 <button className="todo__lists__btn" onClick={ getAllMyToDoLists }>
                     <b>open todo lists</b>
                 </button>
@@ -215,15 +238,19 @@ export default function Input () {
                        type="number"
                        id="get__id"
                        placeholder="ID"
-                       value={ displayOneToDo }
+                       value={ toDoId }
                        min="0"
                        step="1"
                        onChange={ event => setToDoId ( event.target.value ) }/>
-                <button className="get__btn" onClick={ function () {
-                    getMyToDoListById ( toDoId )
+                <button className="get__btn"
+                        onClick={ function () {
+                            getMyToDoListById ( toDoId )
                 } }><b>Check!</b>
                 </button>
                 <br/>
+                <br/>
+                <br/>
+                <p className="alive__text"><b>{ apiStart }</b></p>
                 <br/>
                 <JsonToTable json={ displayAllToDos }/>
                 <br/>

@@ -5,8 +5,8 @@ const port = 3001
 
 const url = hostUrl + ':' + port
 
-const UsersApi = Axios.create({
+const TODOsApi = Axios.create({
     baseURL: url
 })
 
-export default UsersApi
+export default TODOsApi

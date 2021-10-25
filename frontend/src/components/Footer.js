@@ -1,5 +1,5 @@
 import React from 'react';
-import SocialMedias from './SocialMedias';
+import SocialMedias from './SocialMedias.js';
 import Copyright from '../utils/images/Copyright.png'
 import '../utils/global/css/global.css'
 
